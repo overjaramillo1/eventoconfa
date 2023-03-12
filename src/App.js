@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import Navbar from "./compenents/Navbar";
 
-function App() {
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// PAGES
+import Validacion from "./pages/Validacion";
+import CrearEvento from "./pages/CrearEvento";
+import ValidarFacialEvento from "./pages/ValidarFacialEvento";
+import RegistrarUso from "./pages/RegistrarUso";
+import Signup from "./pages/Signup";
+import Login from './pages/Login';
+import CargarAsistentes from './pages/CargarAsistentes';
+import FaceDetectionx from './pages/FaceDetection';
+import RegistrarAsistencia from "./pages/RegistrarAsistencia";
+
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+        <Switch>
+        <Route path="/" exact component={Login} />
+         <Route path="/signup"  component={Signup} />
+          <Route path="/validacion"  component={Validacion} />
+          <Route path="/crearEvento" component={CrearEvento} />
+          <Route path="/validarFacialEvento" component={ValidarFacialEvento} />
+          <Route path="/RegistrarUso" component={RegistrarUso} />
+          <Route path="/cargarAsistentes" component={CargarAsistentes} />
+          <Route path="/faceDetectionx" component={FaceDetectionx} />
+          <Route path="/RegistrarAsistencia" component={RegistrarAsistencia} />
+          
+          
+        </Switch>
+      </Router>
     </div>
   );
 }
-
-export default App;
