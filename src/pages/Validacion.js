@@ -34,10 +34,10 @@ export default function Validacion() {
        .then((data) => {
          console.log(data);
          if(data.respuesta!=null){
-         setFoto(<label className="labelCC">Documento encontrado: {data.respuesta}</label>);
+         setFoto(<label className="labelCC">*Documento encontrado: {data.respuesta}</label>);
          setCc(data.respuesta);
        }else{
-         setFoto(<label className="labelCC">No se pudo reconer el rostro: {data.respuesta}</label>);
+         setFoto(<label className="labelCC">**No se pudo reconer el rostro: {data.respuesta}</label>);
        }
        })
        .catch((error) => console.log("error", error));
@@ -96,7 +96,7 @@ export default function Validacion() {
      <button onClick={capture} className="btnFoto">Tomar foto</button>  
      <button onClick={limpiar} className="btnFoto">Nuevo/limpiar</button>
 
-     <div>{foto} </div>
+     <div><h1>{foto} </h1></div>
  
          
  
