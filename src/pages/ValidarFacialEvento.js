@@ -94,12 +94,12 @@ function limpiar(){
           }}
           
         />
-    <div  className="divbtn"> 
+    <div  className="divbtxn"> 
     <button onClick={capture} className="btnFoto">Tomar foto.</button>  
     <button onClick={limpiar} className="btnFoto">Nuevo/limpiar</button>{foto} 
     </div>
 
-        <ValidarEvento cedula={cc}></ValidarEvento>    
+        
 
     </div>
   );
