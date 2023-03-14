@@ -8,8 +8,11 @@ export default function Validacion() {
   const [data, setData] = useState("");
   const [cc, setCc] = useState("");
   const canvasRef = useRef(null);
+  const [time, setTime] = useState();
   /*CAPTURAR*************************** */
   const capture = React.useCallback(() => {
+    var milliseconds1 = new Date().getTime();
+    console.log('milise ini :>> ', milliseconds1);
     // const ctx = canvasRef.current.getContext("2d");
     //   drawRect('', ctx);
 
@@ -34,13 +37,18 @@ export default function Validacion() {
       .then((data) => {
         console.log(data);
         if (data.respuesta != null) {
+          var milliseconds2 = new Date().getTime();
+          var seg=(milliseconds2-milliseconds1)/1000;
           setFoto(
             <label className="labelCC">
               *Documento encontrado: {data.respuesta}--
-               Estado:{data.detalle}
+               Estado:{data.detalle}--
+               Tiempo consulta:{seg}
             </label>
           );
           setCc(data.respuesta);
+
+         
         } else {
           setFoto(
             <label className="labelCC">
@@ -48,6 +56,7 @@ export default function Validacion() {
             </label>
           );
         }
+        
       })
       .catch((error) => console.log("error", error));
   });
@@ -63,7 +72,7 @@ export default function Validacion() {
     <div>
       <div>
         {" "}
-        <p className="a">Validación facial y registro ingreso</p>
+        <p className="a">Validación facial y Estado animo</p>
       </div>
       <br></br>
       <div className="validacion">
