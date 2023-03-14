@@ -1,19 +1,5 @@
 import React, { useRef, useState } from "react";
 import Webcam from "react-webcam";
-import {
-  Avatar,
-  CardActions,
-  Alert,
-  Item,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Grid,
-  TextField,
-} from "@mui/material";
 
 export default function Validacion() {
   const [foto, setFoto] = useState();
@@ -26,7 +12,7 @@ export default function Validacion() {
   /*CAPTURAR*************************** */
   const capture = React.useCallback(() => {
     var milliseconds1 = new Date().getTime();
-    console.log("milise ini :>> ", milliseconds1);
+    console.log('milise ini :>> ', milliseconds1);
     // const ctx = canvasRef.current.getContext("2d");
     //   drawRect('', ctx);
 
@@ -52,13 +38,17 @@ export default function Validacion() {
         console.log(data);
         if (data.respuesta != null) {
           var milliseconds2 = new Date().getTime();
-          var seg = (milliseconds2 - milliseconds1) / 1000;
+          var seg=(milliseconds2-milliseconds1)/1000;
           setFoto(
             <label className="labelCC">
-              *Documento encontrado: {data.respuesta}-- Estado:{data.detalle}--
-              Tiempo consulta:{seg}
+              *Documento encontrado: {data.respuesta}--
+               Estado:{data.detalle}--
+               Tiempo consulta:{seg}
             </label>
           );
+          setCc(data.respuesta);
+
+         
         } else {
           setFoto(
             <label className="labelCC">
@@ -66,6 +56,7 @@ export default function Validacion() {
             </label>
           );
         }
+        
       })
       .catch((error) => console.log("error", error));
   });
@@ -79,12 +70,17 @@ export default function Validacion() {
 
   return (
     <div>
-      <Card>
-        <CardContent>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <p className="a">Validación facial y registro ingreso</p>
-              <div className="validacion">
+      <div>
+        {" "}
+        <p className="a">Validación facial y Estado animo</p>
+      </div>
+      <br></br>
+      <div className="validacion">
+        <table className="center">
+          <thead>
+            <tr>
+              <th>
+                {" "}
                 <Webcam
                   className="cam"
                   audio={false}
@@ -92,24 +88,43 @@ export default function Validacion() {
                   ref={webcamRef}
                   screenshotFormat="image/jpeg"
                   width={480}
-                />
+                />{" "}
+              </th>
+              <th>
+                {" "}
                 {imgTake && <img width={200} height={150} src={imgTake} />}
-              </div>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
-
-      <div className="divbtn">
-        <button onClick={capture} className="btnFoto">
-          Tomar foto.
-        </button>
-        <button onClick={limpiar} className="btnFoto">
-          Nuevo/limpiar
-        </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div className="outer">
+                  <div class="inner">
+                    <button onClick={capture} className="btnFoto">
+                      Tomar foto
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div className="outer">
+                  <div class="inner">
+                    <button onClick={limpiar} className="btnFoto">
+                      Nuevo/limpiar
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h1>{foto} </h1>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <br></br>
-      {foto}
     </div>
   );
 }
