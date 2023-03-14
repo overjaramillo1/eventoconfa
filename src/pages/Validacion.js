@@ -83,7 +83,7 @@ export default function Validacion() {
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <p className="a">Validación facial y registro ingreso</p>
+              <p className="a">Validación facial y registro ingreso--Confa</p>
               <div className="validacion">
                 <Webcam
                   className="cam"
