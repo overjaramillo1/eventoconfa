@@ -93,23 +93,29 @@ export default function Validacion() {
                   screenshotFormat="image/jpeg"
                   width={480}
                 />
-                {imgTake && <img width={200} height={150} src={imgTake} />}
+              
               </div>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+
 
       <div className="divbtn">
+    
         <button onClick={capture} className="btnFoto">
           Tomar foto.
         </button>
         <button onClick={limpiar} className="btnFoto">
           Nuevo/limpiar
         </button>
+        {imgTake && <img width={150} height={100} src={imgTake} />}
       </div>
+ 
+     
       <br></br>
       {foto}
+
+      </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
     </div>
   );
 }
