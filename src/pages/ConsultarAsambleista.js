@@ -164,8 +164,9 @@ export default function ConsultarAsambleista() {
                   audio={false}
                   height={120}
                   ref={webcamRef}
+                  mirrored={false}
                   screenshotFormat="image/jpeg"
-                  width={200}
+                  width={180}
                 />
               </Grid>
               <Grid xs="3">
