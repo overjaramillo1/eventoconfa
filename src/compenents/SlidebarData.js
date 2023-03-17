@@ -66,5 +66,13 @@ export const SidebarData = [
     path: "/RegistrarAsistencia",
     icon: <IoSettingsOutline />,
     cName: "nav-text"
+  },
+  {
+    title: "Consultar Asambleista",
+    path: "/ConsultarAsambleista",
+    icon: <IoSettingsOutline />,
+    cName: "nav-text"
   }
+
+  
 ];
