@@ -30,6 +30,11 @@ export default function ConsultarAsambleista() {
     },
   ];
 
+  const videoConstraints = {
+    width: { min: 480 },
+    height: { min: 720 },
+    aspectRatio: 1
+  };
   const capture = React.useCallback((event) => {
     event.preventDefault();
     const imageSrc = webcamRef.current.getScreenshot();
@@ -165,8 +170,10 @@ export default function ConsultarAsambleista() {
                   height={120}
                   ref={webcamRef}
                   mirrored={false}
+                  front={true}
                   screenshotFormat="image/jpeg"
                   width={180}
+                  videoConstraints={videoConstraints}
                 />
               </Grid>
               <Grid xs="3">
