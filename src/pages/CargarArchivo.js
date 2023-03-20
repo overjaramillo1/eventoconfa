@@ -70,7 +70,7 @@ const enviarArchivo = async () => {
 
     try {
 
-      const fileInput = document.querySelector('input[type="file"]');
+     // const fileInput = document.querySelector('input[type="file"]');
   
       const formData = new FormData();
     formData.append("file", file);
@@ -116,21 +116,28 @@ const enviarArchivo = async () => {
 
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
    // formData.append("filename", name);
    
-    const resp = await axios.post('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', formData, {
+    const resp = await axios.post('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload',  {
       headers: {
-        "Content-Type": "application/json",
+        
         bucket:'confaanexospy/MPC/beneficios/postulaciones',
         sistema:'MPC'
       },
-      
+      body:formData
     });
     console.log(resp.status)
+
+
+    
   };
+
+
+
 
   return (
 <form  onSubmit={handleSubmit} >
@@ -156,7 +163,7 @@ const enviarArchivo = async () => {
 
         </div>
         <h1>{res}</h1>
-        <input type="submit" value="Cargar archivo" onClick={enviarArchivo} />
+        <input type="submit" value="Cargar archivo"  />
       </div>
       </form>
   );
