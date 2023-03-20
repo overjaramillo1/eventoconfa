@@ -122,154 +122,23 @@ const enviarArchivo = async () => {
     console.log('file... :>> ', file);
     const formData = new FormData();
 
-
-    var requestOptions = {
-      method: "POST",
+    fetch('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', {
+      method: 'POST',
+      body: file,
+      // 👇 Set headers manually for single file upload
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        'content-length': `${file.size}`, // 👈 Headers need to be a string
         "filename": "caja herlu fes.pdf",
         "bucket": "confaanexospy/MPC/beneficios/postulaciones",
         "sistema": "MPC",
-        "Access-Control-Allow-Origin":"*"
       },
-      body: JSON.stringify(file),
-    };
-
-    fetch(
-      "https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.respuesta != null) {
-      
-          console.log('data :>> ', data);
-        } else {
-          console.log('data :>> ', data);
-        }
-      })
-      .catch((error) => console.log("error", error));
-
-
-
-console.log('--------------1--fin------------ :>> ');
-
-
-
-
-    formData.append("sistema", 'MPC');
-    formData.append("filename", 'caja herlu festt.pdf');
-    formData.append("bucket", 'confaanexospy/MPC/beneficios/postulaciones');
-    formData.append("Content-Type", "application/json");
-
-
-try {
-  
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("filename", "caja herlu fes.pdf");
-    myHeaders.append("bucket", "confaanexospy/MPC/beneficios/postulaciones");
-    myHeaders.append("sistema", "MPC");
-    myHeaders.append('Access-Control-Allow-Origin: *');
-
-    //file = formData;
-    
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: JSON.stringify(formData)
-      
-    };
-    
-    fetch("https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-
-
-    } catch (error) {
-  console.log('error try1 :>> ', error);
-    }
-
-
-
-try {
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
   
 
-
-  fetch(
-    'https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload',
-    {
-      method: 'POST',
-      body: formData,
-    }
-  )
-    .then((response) => response.json())
-    .then((result) => {
-      console.log('Success:', result);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-
-  } catch (error) {
-    console.error('Error:', error);
-  }
-
-    try {
-
-  
-
-
-    fetch('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        filename: file,
-        bucket:'confaanexospy/MPC/beneficios/postulaciones',
-        sistema:'MPC'
-      },
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-
-  } catch (error) {
-    console.log('error fech>>> :>> ', error);
-  }
-
-
-
-
-
-
-    try {
-     var config = {
-      method: 'post',
-    maxBodyLength: Infinity,
-      url: 'https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload',
-      headers: { 
-        'Content-Type': 'application/json', 
-        'filename': 'caja herlu fes.pdf', 
-        'bucket': 'confaanexospy/MPC/beneficios/postulaciones', 
-        'sistema': 'MPC'
-      },
-      data : formData
-    };
-
-    axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-         
-  } catch (error) {
-    console.log("err try>>"+error);
-  }
 
 
    // formData.append("filename", name);
