@@ -115,22 +115,61 @@ const enviarArchivo = async () => {
 
 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit =  async (event) => {
 
     event.preventDefault();
+    
+    console.log('file... :>> ', file);
     const formData = new FormData();
     formData.append("file", file);
-   // formData.append("filename", name);
-   
-    const resp = await axios.post('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload',  {
-      headers: {
-        "Content-Type": "application/json",
-        bucket:'confaanexospy/MPC/beneficios/postulaciones',
-        sistema:'MPC'
+
+
+
+    var config = {
+      method: 'post',
+    maxBodyLength: Infinity,
+      url: 'https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload',
+      headers: { 
+        'Content-Type': 'application/json', 
+        'filename': 'caja herlu fes.pdf', 
+        'bucket': 'confaanexospy/MPC/beneficios/postulaciones', 
+        'sistema': 'MPC'
       },
-      body:formData
+      data : formData
+    };
+
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-    console.log(resp.status)
+    
+
+
+   // formData.append("filename", name);
+   /*
+   const headers = {
+    "Content-Type": "application/json",
+    bucket:'confaanexospy/MPC/beneficios/postulaciones',
+    sistema:'MPC',
+    filename:'file.pdf'
+  };
+  const body={
+
+  }
+
+  const resp = await axios.post('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', formData,{  
+    headers: {
+      "Content-Type": "application/json",
+      bucket:'confaanexospy/MPC/beneficios/postulaciones',
+      sistema:'MPC'
+    
+    },
+      
+    });
+  */
 
 
     
@@ -161,7 +200,7 @@ const enviarArchivo = async () => {
 
         </div>
         <h1>{res}</h1>
-        <input type="submit" value="Cargar archivo 15."  />
+        <input type="submit" value="Cargar archivo 17.1."  />
       </div>
       </form>
   );
