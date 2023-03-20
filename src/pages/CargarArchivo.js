@@ -124,7 +124,7 @@ const enviarArchivo = async () => {
    
     const resp = await axios.post('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload',  {
       headers: {
-        
+        "Content-Type": "application/json",
         bucket:'confaanexospy/MPC/beneficios/postulaciones',
         sistema:'MPC'
       },
@@ -155,7 +155,7 @@ const enviarArchivo = async () => {
         </label>
 
 
-        <label>Cargar Archivo</label>
+        <label>Cargar Archivo15</label>
       
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
 
