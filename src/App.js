@@ -14,8 +14,8 @@ import Login from './pages/Login';
 import CargarAsistentes from './pages/CargarAsistentes';
 import FaceDetectionx from './pages/FaceDetection';
 import RegistrarAsistencia from "./pages/RegistrarAsistencia";
+import CargarArchivo from "./pages/CargarArchivo";
 import ConsultarAsambleista from "./pages/ConsultarAsambleista";
-
 
 
 export default function App() {
@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/faceDetectionx" component={FaceDetectionx} />
           <Route path="/RegistrarAsistencia" component={RegistrarAsistencia} />
           <Route path="/ConsultarAsambleista" component={ConsultarAsambleista} />
-          
+          <Route path="/CargarArchivo" component={CargarArchivo} />
           
           
         </Switch>

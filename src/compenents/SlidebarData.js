@@ -72,6 +72,12 @@ export const SidebarData = [
     path: "/ConsultarAsambleista",
     icon: <IoSettingsOutline />,
     cName: "nav-text"
+  },
+  {
+    title: "Cargar archivo",
+    path: "/CargarArchivo",
+    icon: <IoSettingsOutline />,
+    cName: "nav-text"
   }
 
   
