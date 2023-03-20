@@ -137,8 +137,6 @@ const enviarArchivo = async () => {
   };
 
 
-
-
   return (
 <form  onSubmit={handleSubmit} >
       <div>
@@ -163,7 +161,7 @@ const enviarArchivo = async () => {
 
         </div>
         <h1>{res}</h1>
-        <input type="submit" value="Cargar archivo"  />
+        <input type="submit" value="Cargar archivo 15."  />
       </div>
       </form>
   );
