@@ -121,17 +121,20 @@ const enviarArchivo = async () => {
     
     console.log('file... :>> ', file);
     const formData = new FormData();
-
+//{mode:'cors'}
     fetch('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', {
       method: 'POST',
       body: file,
+      mode: 'cors',
       // 👇 Set headers manually for single file upload
       headers: {
         'Content-Type': 'application/json',
         'content-length': `${file.size}`, // 👈 Headers need to be a string
-        "filename": "caja herlu fes.pdf",
+        "filename": "reacjs.pdf",
         "bucket": "confaanexospy/MPC/beneficios/postulaciones",
         "sistema": "MPC",
+        "access-control-allow-origin" : "*",
+        "Content-type": "multipart/form-data"
       },
     })
       .then((res) => res.json())
@@ -193,7 +196,7 @@ const enviarArchivo = async () => {
 
         </div>
         <h1>{res}</h1>
-        <input type="submit" value="Cargar archivo 18.1."  />
+        <input type="submit" value="Cargar archivo 19.1."  />
       </div>
       </form>
   );
