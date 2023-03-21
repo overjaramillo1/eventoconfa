@@ -10,7 +10,7 @@ export default function CargarArchivo() {
   const [asistentes, setAsistentes] = useState([]);
   const [res, setRes] = useState();
   var formData = new FormData();
-  var fileInput=null;
+  var fileInput = null;
   const [file, setFile] = useState(null);
   const [filename, SetFilename] = useState("");
   /*useEffect(() => {
@@ -34,70 +34,59 @@ export default function CargarArchivo() {
   }, []);
 */
 
-
-
-const enviarArchivo = async () => {
-
+  const enviarArchivo = async () => {
     const formData = new FormData();
-    formData.append('File', file);
-    console.log('file ***:>> ', file);
+    formData.append("File", file);
+    console.log("file ***:>> ", file);
 
     try {
-   const res=   await  fetch('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', 
-    {
-      method: 'POST',
-      headers: {
-        filename: 'prueba.pdf',
-        bucket:'confaanexospy/MPC/beneficios/postulaciones',
-        sistema:'MPC'
-      },
-      body: file
-    })
-    const actualData = await res.json();
-    console.log(actualData);
-
-      
-  } catch (error) {
-      console.log('error :>> ', error);
-  }
-
-
-};
-
-
-  
-  const handleCargarArchivo = async ({ target: { files } }) => {
-
-    try {
-
-     // const fileInput = document.querySelector('input[type="file"]');
-  
-      const formData = new FormData();
-    formData.append("file", file);
-
-
-      fetch('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-          filename: file,
-          bucket:'confaanexospy/MPC/beneficios/postulaciones',
-          sistema:'MPC'
-        },
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
+      const res = await fetch(
+        "https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload",
+        {
+          method: "POST",
+          headers: {
+            filename: "prueba.pdf",
+            bucket: "confaanexospy/MPC/beneficios/postulaciones",
+            sistema: "MPC",
+          },
+          body: file,
+        }
+      );
+      const actualData = await res.json();
+      console.log(actualData);
     } catch (error) {
-      console.log('error :>> ', error);
-  }
+      console.log("error :>> ", error);
+    }
+  };
 
+  const handleCargarArchivo = async ({ target: { files } }) => {
+    try {
+      // const fileInput = document.querySelector('input[type="file"]');
 
+      const formData = new FormData();
+      formData.append("file", file);
 
+      fetch(
+        "https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            filename: file,
+            bucket: "confaanexospy/MPC/beneficios/postulaciones",
+            sistema: "MPC",
+          },
+          body: formData,
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
 
-
-    console.log('files :>> ',formData );
+    console.log("files :>> ", formData);
     file = files[0];
     let results;
     Papa.parse(file, {
@@ -106,46 +95,41 @@ const enviarArchivo = async () => {
       header: true,
       complete: function (responses) {
         results = responses.data;
-        file=results;
-        console.log('91:>>'+responses.data.length, responses);
+        file = results;
+        console.log("91:>>" + responses.data.length, responses);
         setAsistentes(responses.data);
       },
     });
   };
 
-
-
-  const handleSubmit =  async (event) => {
-
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    console.log('file... :>> ', file);
+
+    console.log("file... :>> ", file);
     const formData = new FormData();
-//{mode:'cors'}
-    fetch('https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload', {
-      method: 'POST',
+    //{mode:'cors'}
+  //  fetch("https://doq6msba36.execute-api.us-east-1.amazonaws.com/PY/upload", {
+    
+  fetch("https://4geirpp1m2.execute-api.us-east-1.amazonaws.com/pd/subir", {
+      method: "POST",
       body: file,
-      mode: 'cors',
+   
       // 👇 Set headers manually for single file upload
       headers: {
-        'Content-Type': 'application/json',
-        'content-length': `${file.size}`, // 👈 Headers need to be a string
+        "Content-Type": "application/json",
+        "content-length": `${file.size}`, // 👈 Headers need to be a string
         "filename": "reacjs.pdf",
         "bucket": "confaanexospy/MPC/beneficios/postulaciones",
         "sistema": "MPC",
-        "access-control-allow-origin" : "*",
-        "Content-type": "multipart/form-data"
+        "access-control-allow-origin": "*"
       },
     })
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.error(err));
-  
 
-
-
-   // formData.append("filename", name);
-   /*
+    // formData.append("filename", name);
+    /*
    const headers = {
     "Content-Type": "application/json",
     bucket:'confaanexospy/MPC/beneficios/postulaciones',
@@ -166,14 +150,10 @@ const enviarArchivo = async () => {
       
     });
   */
-
-
-    
   };
 
-
   return (
-<form  onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}>
       <div>
         <label>
           Nombre Archivo
@@ -187,17 +167,14 @@ const enviarArchivo = async () => {
           />
         </label>
 
-
         <label>Cargar Archivo15</label>
-      
+
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
 
-        <div style={{ height: 300, width: "80%" }}>
-
-        </div>
+        <div style={{ height: 300, width: "80%" }}></div>
         <h1>{res}</h1>
-        <input type="submit" value="Cargar archivo 19.1."  />
+        <input type="submit" value="Cargar archivo 191" />
       </div>
-      </form>
+    </form>
   );
 }
