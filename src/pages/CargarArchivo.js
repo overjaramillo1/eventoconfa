@@ -167,7 +167,7 @@ export default function CargarArchivo() {
           />
         </label>
 
-        <label>Cargar Archivo15</label>
+        <label>Cargar Archivo-0</label>
 
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
 
