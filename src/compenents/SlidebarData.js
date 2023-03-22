@@ -56,26 +56,20 @@ export const SidebarData = [
     cName: "nav-text"
   },
   {
-    title: "Support",
-    path: "/support",
-    icon: <IoSettingsOutline />,
-    cName: "nav-text"
-  },
-  {
     title: "Registrar Asistencia Capa",
     path: "/RegistrarAsistencia",
     icon: <IoSettingsOutline />,
     cName: "nav-text"
   },
   {
-    title: "Consultar Asambleista",
-    path: "/ConsultarAsambleista",
+    title: "Cargar archivo",
+    path: "/CargarArchivo",
     icon: <IoSettingsOutline />,
     cName: "nav-text"
   },
   {
-    title: "Cargar archivo",
-    path: "/CargarArchivo",
+    title: "Consultar Asambleista",
+    path: "/ConsultarAsambleista",
     icon: <IoSettingsOutline />,
     cName: "nav-text"
   }

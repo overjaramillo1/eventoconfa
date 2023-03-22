@@ -35,11 +35,28 @@ export default function CargarArchivo() {
   
   const handleClick = () => {
     const text = atob(filed);//
+    //txt
     const blob = new Blob([text], { type: 'text/plain' });  
     const link = document.createElement('a');
     link.download = 'archivo.txt';
     link.href = window.URL.createObjectURL(blob);
     link.click();
+    
+
+    //pdf
+   /* const byteCharacters = atob(filed);
+
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'application/pdf' });
+    const link = document.createElement('a');
+    link.download = 'archivo.pdf';
+    link.href = window.URL.createObjectURL(blob);
+    link.click();*/
 
   }
 
@@ -51,7 +68,8 @@ export default function CargarArchivo() {
     };
 
     fetch(
-      "https://6rorbbfaeb.execute-api.us-east-1.amazonaws.com/py/download",
+     // "https://6rorbbfaeb.execute-api.us-east-1.amazonaws.com/py/download",
+     "https://doq6msba36.execute-api.us-east-1.amazonaws.com/PD/download",
       requestOptions
     )
       .then((response) => response.json())
