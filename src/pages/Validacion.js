@@ -42,9 +42,12 @@ export default function Validacion() {
         imgdata: imageSrc.replace(/^data:image\/[a-z]+;base64,/, ""),
       }),
     };
-
+    //produccion
+//https://4uw28yccb8.execute-api.us-east-1.amazonaws.com/PD/identificarb64ccsenti
+//pruebas
+//https://ssz3in99qf.execute-api.us-east-1.amazonaws.com/py/validacionfacialc2
     fetch(
-      "https://ssz3in99qf.execute-api.us-east-1.amazonaws.com/py/validacionfacialc2",
+      "https://4uw28yccb8.execute-api.us-east-1.amazonaws.com/PD/identificarb64ccsenti",
       requestOptions
     )
       .then((response) => response.json())
