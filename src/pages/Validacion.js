@@ -36,29 +36,30 @@ export default function Validacion() {
     var requestOptions = {
       method: "POST",
       headers: {
-        "x-api-key": "da3j0LYdK46bGLzs67oCK1X23imFczh79e9XwbIy",
+        "Content-Type": "application/json",
+        "x-api-key": "xeEL1271YK2pW0W8vgMAAmV7ML7AAmwaQZ9FTW00",
       },
       body: JSON.stringify({
-        imgdata: imageSrc.replace(/^data:image\/[a-z]+;base64,/, ""),
+        imageBase64: imageSrc.replace(/^data:image\/[a-z]+;base64,/, ""),
       }),
     };
     //produccion
-//https://4uw28yccb8.execute-api.us-east-1.amazonaws.com/PD/identificarb64ccsenti
-//pruebas
-//https://ssz3in99qf.execute-api.us-east-1.amazonaws.com/py/validacionfacialc2
+//https://4uw28yccb8.execute-api.us-east-1.amazonaws.com/PD/identificarb64ccsenti 
+//pruebas imgdata
+//https://ssz3in99qf.execute-api.us-east-1.amazonaws.com/py/validacionfacialc2  //da3j0LYdK46bGLzs67oCK1X23imFczh79e9XwbIy
     fetch(
       "https://4uw28yccb8.execute-api.us-east-1.amazonaws.com/PD/identificarb64ccsenti",
       requestOptions
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        if (data.respuesta != null) {
+        console.log("----"+JSON.stringify(data));
+        if (data.cc != null) {
           var milliseconds2 = new Date().getTime();
           var seg = (milliseconds2 - milliseconds1) / 1000;
           setFoto(
             <label className="labelCC">
-              *Documento encontrado: {data.respuesta}-- Estado:{data.detalle}--
+              *Documento encontrado: {data.cc}-- Estado:{data.sentimiento}--
               Tiempo consulta:{seg}
             </label>
           );
