@@ -88,7 +88,7 @@ export default function CargarArchivo() {
     console.log("nomarc... :>> ",  datos.nomarc);
     console.log("file.name.. :>> ", file.name);
     const APIkEY = process.env.REACT_APP_API_KEY;
-    console.log("APIkEY.. :>> ", APIkEY);
+  
     console.log("file.name.. :>> ", file.name);
     //https://doq6msba36.execute-api.us-east-1.amazonaws.com/PD/upload
     //ConfaAnexosPY-PUT
