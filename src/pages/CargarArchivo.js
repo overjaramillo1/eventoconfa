@@ -88,6 +88,7 @@ export default function CargarArchivo() {
     console.log("nomarc... :>> ",  datos.nomarc);
     console.log("file.name.. :>> ", file.name);
     //https://doq6msba36.execute-api.us-east-1.amazonaws.com/PD/upload
+    //ConfaAnexosPY-PUT
     fetch("https://doq6msba36.execute-api.us-east-1.amazonaws.com/PD/upload", {     
       method: "POST",
       body: file,
@@ -96,7 +97,7 @@ export default function CargarArchivo() {
         "sistema":"MPC",
         "bucket":"confaanexospy/MPC/beneficios/postulaciones",
         "filename": file.name,
-        "X-Api-Key":"n7LbGMFXcX209vIoH16AVas2nlDcK38k98aVK5dJ"
+        'x-api-key': 'n7LbGMFXcX209vIoH16AVas2nlDcK38k98aVK5dJ'
         
       },
     }).then((res) => res.json())
