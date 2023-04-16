@@ -27,7 +27,8 @@ export default function Validacion() {
   const [cc, setCc] = useState("");
   const canvasRef = useRef(null);
   const [time, setTime] = useState();
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOptionTipo, setSelectedOptionTipo] = useState('');
+  const [selectedOptionSede, setSelectedOptionSede] = useState('');
   const [datos, setDatos] = useState({
     tipo:"",
   });
@@ -70,6 +71,7 @@ export default function Validacion() {
       .then((data) => {
         console.log("----"+JSON.stringify(data));
         if (data.cc != null) {
+          setCc(data.cc);
           var milliseconds2 = new Date().getTime();
           var seg = (milliseconds2 - milliseconds1) / 1000;
           setFoto(
@@ -89,11 +91,20 @@ export default function Validacion() {
       .catch((error) => console.log("error", error));
   });
   /*END CAPTURAR*************************** */
-const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+const handleOptionChangeTipo = (event) => {
+    setSelectedOptionTipo(event.target.value);
   };
 
+  const handleOptionChangeSede = (event) => {
+    setSelectedOptionSede(event.target.value);
+  }; 
 
+  const registrarIngreso=(event)=>{
+    console.log('event :>> ', event);
+    console.log('cc :>> ', cc);
+    console.log('selectedOptionTipo :>> ',selectedOptionTipo);
+    console.log('selectedOptionSede :>> ',selectedOptionSede);
+  }
   function limpiar() {
     setFoto(null);
     setimgTake(null);
@@ -142,7 +153,7 @@ const handleOptionChange = (event) => {
           <CardContent>
           <FormControl component="fieldset">
               <FormLabel component="legend">Tipo:</FormLabel>
-              <RadioGroup row  aria-label="option" name="option" value={selectedOption} onChange={handleOptionChange}>
+              <RadioGroup row  aria-label="option" name="option" value={selectedOptionTipo} onChange={handleOptionChangeTipo}>
                 <FormControlLabel value="Ingreso" control={<Radio />} label="Ingreso" />
                 <FormControlLabel value="Salida" control={<Radio />} label="Salida" />
               </RadioGroup>
@@ -151,7 +162,7 @@ const handleOptionChange = (event) => {
           <CardContent>
               <FormControl component="fieldset">
               <FormLabel component="legend">Sede Ingreso:</FormLabel>
-             <Select value={value} onChange={handleChange}>
+             <Select value={value} onChange={handleOptionChangeSede}>
               <MenuItem value="Versalles">Versalles</MenuItem>
               <MenuItem value="San Marcel">San Marcel</MenuItem>
               <MenuItem value="GYM Versalles">GYM Versalles</MenuItem>
@@ -163,7 +174,7 @@ const handleOptionChange = (event) => {
          
        
         <CardActions>
-          <Button variant="contained" onClick={capture}  color="primary"  className="btnFoto"> 
+          <Button variant="contained" onClick={registrarIngreso}  color="primary"  className="btnFoto"> 
           Registrar
           </Button>
         </CardActions>
