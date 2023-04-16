@@ -10,7 +10,6 @@ body {
 }
 
 .home,
-.validacion,
 .registrar,
 .products {
   display: flex;
@@ -19,6 +18,12 @@ body {
   justify-content: center;
 }
 
+.validacion {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
 
 
 p.a {

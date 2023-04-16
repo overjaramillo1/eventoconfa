@@ -139,7 +139,7 @@ export default function CargarArchivo() {
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
       
         <h1>{res}</h1>
-        <input type="submit" value="Cargar archivo 22 ok" />
+        <input type="submit" value="Cargar archivo 30 ok" />
       </div>
       <div>
         <label>{res}</label>

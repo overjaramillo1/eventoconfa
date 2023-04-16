@@ -16,6 +16,9 @@ import FaceDetectionx from './pages/FaceDetection';
 import RegistrarAsistencia from "./pages/RegistrarAsistencia";
 import CargarArchivo from "./pages/CargarArchivo";
 import ConsultarAsambleista from "./pages/ConsultarAsambleista";
+import IngresoConfa from "./pages/IngresoConfa";
+
+
 
 
 export default function App() {
@@ -35,6 +38,8 @@ export default function App() {
           <Route path="/RegistrarAsistencia" component={RegistrarAsistencia} />
           <Route path="/ConsultarAsambleista" component={ConsultarAsambleista} />
           <Route path="/CargarArchivo" component={CargarArchivo} />
+          <Route path="/IngresoConfa" component={IngresoConfa} />
+          
           
           
         </Switch>

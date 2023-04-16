@@ -19,6 +19,13 @@ export const SidebarData = [
     icon: <IoIosPersonAdd/>,
     cName: "nav-text"
   },
+  
+  {
+    title: "IngresoConfa",
+    path: "/IngresoConfa",
+    icon: <IoSettingsOutline />,
+    cName: "nav-text"
+  },
   {
     title: "Validacion",
     path: "/validacion",
@@ -73,6 +80,7 @@ export const SidebarData = [
     icon: <IoSettingsOutline />,
     cName: "nav-text"
   }
+  
 
   
 ];
