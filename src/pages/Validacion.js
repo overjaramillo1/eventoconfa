@@ -32,6 +32,9 @@ export default function Validacion() {
 
     var requestOptions = {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
 
     };
     fetch("https://lo3llmhfb0.execute-api.us-east-1.amazonaws.com/PY/identificarvalidarmcV2",requestOptions)
