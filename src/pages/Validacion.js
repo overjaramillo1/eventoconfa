@@ -33,13 +33,14 @@ export default function Validacion() {
     var requestOptions = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "x-api-key": "C4Vq8h3L1r9nxz1fKDSoR4kaaL59ks2E8axGpXSG"
       },
 
     };
     fetch("https://lo3llmhfb0.execute-api.us-east-1.amazonaws.com/PY/identificarvalidarmcV2",requestOptions)
       .then((response) => response.json())
-      .then(data =>    console.log("---mataaaaa-"+data));
+      .then(data =>    console.log('RESP>>>'+JSON.stringify(data)));
      
 
 
