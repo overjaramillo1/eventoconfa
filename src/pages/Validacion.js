@@ -30,6 +30,18 @@ export default function Validacion() {
     // const ctx = canvasRef.current.getContext("2d");
     //   drawRect('', ctx);
 
+    var requestOptions = {
+      method: "POST",
+
+    };
+    fetch("https://lo3llmhfb0.execute-api.us-east-1.amazonaws.com/PY/identificarvalidarmcV2",requestOptions)
+      .then((response) => response.json())
+      .then(data =>    console.log("---mataaaaa-"+data));
+     
+
+
+    //------------------
+
     const imageSrc = webcamRef.current.getScreenshot();
     var strImage = imageSrc.replace(/^data:image\/[a-z]+;base64,/, "");
     setimgTake(imageSrc);
@@ -87,7 +99,7 @@ export default function Validacion() {
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <p className="a">Validación facial y registro ingreso--Confa</p>
+              <p className="a">Validación facial y registro ingreso--Confa---matta</p>
               <div className="validacion">
                 <Webcam
                   className="cam"

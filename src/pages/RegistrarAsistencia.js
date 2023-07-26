@@ -14,6 +14,7 @@ export default function RegistrarUso() {
   const itemColaSelecc = useRef();
   const parsedData="";
   const [nomSele,setNomSele]=useState();
+  
   useEffect(() => {
     console.time("cargando capa");
           const   parseFile = () => new Promise((resolve) => {

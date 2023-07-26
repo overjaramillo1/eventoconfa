@@ -84,13 +84,7 @@ p.a {
 }
 
 
-.cam{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: hp('40%');
-width: hp('40%');
-}
+
 .preview {
   border-radius: 120;
   height: 240,
